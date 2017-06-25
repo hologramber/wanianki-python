@@ -7,9 +7,9 @@
 import random
 import genanki
 import json
-# from PIL import ImageFont
-# from PIL import ImageDraw
-# from PIL import Image
+from PIL import ImageFont
+from PIL import ImageDraw
+from PIL import Image
 
 
 # If you plan to use this script multiple times to update decks, hardcode the model IDs below -- they're unique
@@ -43,13 +43,13 @@ kanji_model = genanki.Model(kanji_model_id, 'Kanji Model',
                     '<p class="style-others">Nanori: {{Nanori}}</p>',
         },
     ],
-    css=".card { text-align:center; font-size: 100px; color: #ffffff; background: #f100a1; margin: 25px auto; }"
-        ".style-front { text-align:center; font-size: 100px; color: #ffffff; background: #f100a1; margin: 10px auto; }"
-        ".style-meaning { text-align:center; font-size: 40px; color: #ffffff; background: #f100a1; margin: 0px; }"
+    css=".card { text-align:center; color: #ffffff; background: #f100a1; margin: 5px auto; }"
+        ".style-front { text-align:center; font-size: 115px; color: #ffffff; background: #f100a1; margin-top: 5px; }"
+        ".style-meaning { text-align:center; font-size: 25px; color: #ffffff; background: #f100a1; margin: 0px; }"
         ".style-level { font-size: 10px; font-weight: bold; position: absolute; top: 0; right: 0; margin: 5px; }"
-        ".style-reading { text-align:center; font-size: 50px; color: #ffffff; background: #f100a1; margin-top: 10px; margin-bottom: 15px; } "
-        ".style-others { font-size: 20px; color: #ffffff; text-align: center; margin: 0px; padding: 0px; } "
-        ".line-dash { margin-top: 30px; margin-bottom: 10px;  border-top: #ffffff dashed 2px; }")
+        ".style-reading { text-align:center; font-size: 30px; color: #ffffff; background: #f100a1; margin-top: 10px; margin-bottom: 10px; } "
+        ".style-others { font-size: 15px; color: #ffffff; text-align: center; margin: 0px; padding: 0px; } "
+        ".line-dash { margin-top: 5px; margin-bottom: 15px;  border-top: #ffffff dashed 2px; }")
 
 wanianki_kanji = genanki.Deck(wanianki_kanji_id, 'WaniAnki Kanji')
 
@@ -63,18 +63,18 @@ kanji_level = []
 kid = 1
 
 with open('wanikani_kanji.json') as kanji:
-    # font = ImageFont.truetype("KanjiStrokeOrders_v4.001.ttf", 150)
+    font = ImageFont.truetype("KanjiStrokeOrders_v4.001.ttf", 150)
     k = json.load(kanji)
     sortlevel = [x for x in k['requested_information'] if 'level' in x]
     kanji_by_level = sorted(sortlevel, key=lambda x: x['level'])
 
     for kan in kanji_by_level:
         kanji_character = kan['character']
-        # img = Image.new("RGB", (200, 200), (241, 0, 161))
-        # draw = ImageDraw.Draw(img)
-        # draw.text((20, 0), kanji_character, (255, 255, 255), font=font)
-        # draw = ImageDraw.Draw(img)
-        # img.save(str(kid) + ".png")
+        img = Image.new("RGB", (200, 200), (241, 0, 161))
+        draw = ImageDraw.Draw(img)
+        draw.text((20, 0), kanji_character, (255, 255, 255), font=font)
+        draw = ImageDraw.Draw(img)
+        img.save(str(kid) + ".png")
 
         kanji_meaning = kan['meaning']
         if kan['onyomi']:

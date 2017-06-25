@@ -38,11 +38,11 @@ vocabulary_reverse_model = genanki.Model(vocabulary_reverse_model_id, 'Vocabular
                     '<p class="style-reading">{{KanaR}}</p>',
         },
     ],
-    css=".card { text-align:center; font-size: 40px; color: #ffffff; background: #a100f1; margin: 25px auto; }"
-        ".style-front { text-align:center; font-size: 40px; color: #ffffff; background: #a100f1; }"
-        ".style-level { font-size: 10px; font-weight: bold; position: absolute; top: 0; right: 0; margin: 5px; }"
-        ".style-reading { text-align:center; font-size: 50px; color: #ffffff; background: #a100f1; margin-top: 5px; } "
-        ".line-dash { margin-top: 30px; margin-bottom: 10px; border-top: #ffffff dashed 2px; }")
+    css=".card { text-align:center; color: #ffffff; background: #a100f1; margin: 0px auto; }"
+        ".style-front { text-align:center; font-size: 30px; color: #ffffff; background: #a100f1; margin-top: 25px; }"
+        ".style-level { font-size: 10px; font-weight: bold; position: absolute; top: 0; right: 0; }"
+        ".style-reading { text-align:center; font-size: 40px; color: #ffffff; background: #a100f1; margin-top: 5px; } "
+        ".line-dash { margin-top: 35px; margin-bottom: 15px; border-top: #ffffff dashed 2px; }")
 
 wanianki_vocabulary_reverse = genanki.Deck(wanianki_vocabulary_reverse_id, 'WaniAnki Vocabulary Reverse')
 

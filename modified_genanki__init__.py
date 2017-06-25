@@ -1,5 +1,6 @@
 # search for 'time_id' to see the changes -- this SLOWS THINGS DOWN A LOT
 # see here for anki db schema: https://github.com/ankidroid/Anki-Android/wiki/Database-Structure
+#
 # previously the 'id' field for cards and notes was 'null' -- this meant
 # many of my card additions weren't shown in the order I added them
 #
@@ -7,7 +8,7 @@
 # id for each, and sleeps for 5 milliseconds after each card/note is added to avoid 
 # identical time_ids (they need to be unique as database primary keys)
 #
-# this is an ugly hack but it works
+# this is an ~ugly~ hack but it works
 
 from cached_property import cached_property
 from copy import copy

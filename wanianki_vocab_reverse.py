@@ -55,7 +55,7 @@ vid = 1
 maxlength = 0
 
 with open('wanikani_vocabulary.json') as vocab:
-    # font = ImageFont.truetype("KanjiStrokeOrders_v4.001.ttf", 100)
+    font = ImageFont.truetype("KanjiStrokeOrders_v4.001.ttf", 100)
     v = json.load(vocab)
     sortlevel = [x for x in v['requested_information'] if 'level' in x]
     vocab_by_level = sorted(sortlevel, key=lambda x: x['level'])
@@ -63,12 +63,12 @@ with open('wanikani_vocabulary.json') as vocab:
     for voc in vocab_by_level:
         vocabulary = voc['character']
         charlength = len(vocabulary)
-        # width = (charlength * 103) + (50 - (charlength * 5))
-        # img = Image.new("RGB", (width, 140), (161, 0, 241))
-        # draw = ImageDraw.Draw(img)
-        # draw.text((20, 0), vocabulary, (255, 255, 255), font=font)
-        # draw = ImageDraw.Draw(img)
-        # img.save('v' + str(vid) + '.png')
+        width = (charlength * 103) + (50 - (charlength * 5))
+        img = Image.new("RGB", (width, 140), (161, 0, 241))
+        draw = ImageDraw.Draw(img)
+        draw.text((20, 0), vocabulary, (255, 255, 255), font=font)
+        draw = ImageDraw.Draw(img)
+        img.save('v' + str(vid) + '.png')
         vocabulary_kana = voc['kana']
         vocabulary_meaning = voc['meaning']
         vocabulary_level = str(voc['level'])
